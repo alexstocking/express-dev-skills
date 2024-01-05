@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<nav>
+  <ul>
+    <li><a href="/">&lt; Back</a></li> 
+    <li><a href="/skills/new">Add New Skill!</a></li>
+  </ul>
+</nav>
+
+<h1>Click to show each skill in more detail!</h1>
+
+<ul>
+  <% skills.forEach(function(s) { %>
+    <li class="removePoint">
+      <form 
+      action="skills/<%= s.id %>?_method=DELETE"
+      method="POST"
+      class="delete-form"
+      >
+      <button id="deleteBtn" type="submit">X</button>
+    </form>
+    <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+    </li>
+    <% }); %>
+  </ul>
+
+  
+
+<%- include('../partials/footer') %>
